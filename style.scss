@@ -10,6 +10,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Balsamiq Sans", cursive;
+  outline: none;
 }
 
 body {
@@ -19,4 +20,66 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-color: var(--clr-bg);
+  color: var(--clr-neon);
+}
+
+.neon-button {
+  font-size: 4rem;
+
+  display: inline-block;
+  position: relative;
+
+  cursor: pointer;
+  color: var(--clr-neon);
+  padding: 0.25em 1em;
+  text-decoration: none;
+
+  border: var(--clr-neon) 0.128em solid;
+  border-radius: 0.25em;
+
+  text-shadow: 0 0 0.125em hsla(0, 0%, 100%, 0.3), 0 0 0.45em var(--clr-neon);
+  box-shadow: inset 0 0 0.5em var(--clr-neon), 0 0 0.5em var(--clr-neon);
+
+  transition: background-color 100ms linear;
+
+  &:hover,
+  &:focus {
+    background-color: var(--clr-neon);
+    color: var(--clr-bg);
+    text-shadow: none;
+  }
+
+  &::before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    background-color: var(--clr-neon);
+    top: 120%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    transform: perspective(1em) rotateX(40deg) scale(1.4, 0.5);
+    filter: blur(1.3em);
+    opacity: 0.7;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    box-shadow: 0 0 1em 0.4em var(--clr-neon);
+    opacity: 0;
+  }
+
+  &:hover::after,
+  &:hover::before {
+    opacity: 1;
+  }
 }

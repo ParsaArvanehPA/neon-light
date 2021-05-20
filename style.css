@@ -11,6 +11,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: "Balsamiq Sans", cursive;
+  outline: none;
 }
 
 body {
@@ -25,5 +26,62 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: var(--clr-bg);
+  color: var(--clr-neon);
+}
+
+.neon-button {
+  font-size: 4rem;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  color: var(--clr-neon);
+  padding: 0.25em 1em;
+  text-decoration: none;
+  border: var(--clr-neon) 0.128em solid;
+  border-radius: 0.25em;
+  text-shadow: 0 0 0.125em rgba(255, 255, 255, 0.3), 0 0 0.45em var(--clr-neon);
+  -webkit-box-shadow: inset 0 0 0.5em var(--clr-neon), 0 0 0.5em var(--clr-neon);
+          box-shadow: inset 0 0 0.5em var(--clr-neon), 0 0 0.5em var(--clr-neon);
+  -webkit-transition: background-color 100ms linear;
+  transition: background-color 100ms linear;
+}
+
+.neon-button:hover, .neon-button:focus {
+  background-color: var(--clr-neon);
+  color: var(--clr-bg);
+  text-shadow: none;
+}
+
+.neon-button::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  background-color: var(--clr-neon);
+  top: 120%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: perspective(1em) rotateX(40deg) scale(1.4, 0.5);
+          transform: perspective(1em) rotateX(40deg) scale(1.4, 0.5);
+  -webkit-filter: blur(1.3em);
+          filter: blur(1.3em);
+  opacity: 0.7;
+}
+
+.neon-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-box-shadow: 0 0 1em 0.4em var(--clr-neon);
+          box-shadow: 0 0 1em 0.4em var(--clr-neon);
+  opacity: 0;
+}
+
+.neon-button:hover::after, .neon-button:hover::before {
+  opacity: 1;
 }
 /*# sourceMappingURL=style.css.map */
