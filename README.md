@@ -1,4 +1,4 @@
-![Design preview for the Base Apparel coming soon page coding challenge](./design/preview.png)
+![Design preview for the Base Apparel coming soon page coding challenge](./preview/preview.png)
 
 ## Welcome! 👋
 
